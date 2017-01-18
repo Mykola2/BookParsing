@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
  * Created by nicko on 12/19/2016.
  */
 public class Sentence extends CompositeElement {
-    private List<Element> elements = new ArrayList<Element>();
-    private final String WORD_REGEX = "([\\p{Punct}\\s]+)|([-?!.,:;\\\"]+)";
+    private List<Element> elements = new ArrayList<>();
+    private final String WORD_REGEX = "([А-Яа-я\\w]+[^-?!.,:;\"\\s]*)|([-?!.,:;\"]+)|(\\s+)";
 
     public List<Element> getElements() {
         return elements;
@@ -30,6 +30,10 @@ public class Sentence extends CompositeElement {
             } else if (wordMatcher.group(2) != null) {
                 element = new Punctuation();
                 element.parse(wordMatcher.group(2));
+            }
+            else if (wordMatcher.group(3) != null) {
+                element = new Separator();
+                element.parse(wordMatcher.group(3));
             }
             add(element);
         }

@@ -4,24 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class that represents a composite Component
  * Created by nicko on 12/19/2016.
  */
 public class CompositeElement implements Element {
-    private List<Element> elements = new ArrayList<Element>();
+    private List<Element> elements = new ArrayList<>();
+
+    public StringBuilder getElement(StringBuilder element) {
+        getElements().forEach(e -> e.getElement(element));
+        return element;
+    }
 
     public String getElement() {
-        return null;
+        return getElement(new StringBuilder()).toString();
     }
 
     public void parse(String content) {
 
     }
 
-    public void add(Element element){
-        elements.add(element);
+    public List<Element> getElements() {
+        return elements;
     }
 
-    public void remove(Element element){
-        elements.remove(element);
+    public boolean isComposite() {
+        return true;
     }
+
+    public void add(Element element) {
+        getElements().add(element);
+    }
+
 }

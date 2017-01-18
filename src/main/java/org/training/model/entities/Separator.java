@@ -1,5 +1,6 @@
 package org.training.model.entities;
 
+
 import org.training.model.CompositeElement;
 import org.training.model.Element;
 import org.training.model.ElementFactory;
@@ -7,14 +8,12 @@ import org.training.model.ElementFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nicko on 12/19/2016.
- */
-public class Word extends CompositeElement {
-    private List<Element> elements = new ArrayList<>();
+public class Separator extends CompositeElement {
+    List<Element> list = new ArrayList<>();
 
+    @Override
     public List<Element> getElements() {
-        return elements;
+        return list;
     }
 
     @Override

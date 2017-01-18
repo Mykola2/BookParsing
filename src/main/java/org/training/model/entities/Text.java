@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
  * Created by nicko on 12/19/2016.
  */
 public class Text extends CompositeElement {
-    private List<Element> elements = new ArrayList<Element>();
-    private final String SENTENCE_REGEX = "^\\s+[A-Za-z,;'\"\\s]+[.?!]$";
+    private List<Element> elements = new ArrayList<>();
+    private final String SENTENCE_REGEX = "(\\s*[А-ЯA-Z]([^?!.])*[.?!])";
 
     public List<Element> getElements() {
         return elements;

@@ -1,13 +1,13 @@
 package org.training;
 
-/**
- * Hello world!
- *
- */
+import org.training.model.Model;
+
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Controller controller = new Controller(new Model(), new View());
+        controller.process();
     }
 }
